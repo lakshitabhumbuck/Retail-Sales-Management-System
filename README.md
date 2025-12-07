@@ -39,7 +39,7 @@ export const performSearch = (data, searchTerm, searchFields) => {
     });
   });
 };
-
+```
 
 
 ## Filter Implementation Summary
