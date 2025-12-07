@@ -1,0 +1,64 @@
+.sorting-dropdown {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: white;
+  padding: 14px 16px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-md);
+  margin-bottom: 20px;
+}
+
+.sorting-dropdown label {
+  font-weight: 700;
+  font-size: 14px;
+  color: var(--text-color);
+  margin: 0;
+  white-space: nowrap;
+}
+
+.sort-select {
+  padding: 10px 12px;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+  transition: all var(--transition-duration) ease;
+  flex: 1;
+  min-width: 150px;
+  font-weight: 600;
+}
+
+.sort-select:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+  background-color: #f9fafb;
+}
+
+.sort-order-btn {
+  padding: 10px 12px;
+  border: 2px solid var(--border-color);
+  border-radius: 6px;
+  background: white;
+  cursor: pointer;
+  font-size: 18px;
+  transition: all var(--transition-duration) ease;
+  min-width: 44px;
+  font-weight: 700;
+}
+
+.sort-order-btn:hover {
+  background: linear-gradient(135deg, var(--light-bg) 0%, var(--light-bg-secondary) 100%);
+  border-color: var(--primary-light);
+  box-shadow: var(--shadow-sm);
+}
+
+.sort-order-btn:active {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+  color: white;
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-md);
+}
