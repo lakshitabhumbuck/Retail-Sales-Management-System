@@ -14,8 +14,11 @@ app.use(cors({
     'http://localhost:3000', 
     'http://192.168.1.2:3000', 
     'http://172.21.160.1:3000',
-    process.env.FRONTEND_URL || 'https://retail-sales-management-system-a6xb.onrender.com'
-  ],
+    'https://retail-sales-management-system-a6xb.onrender.com',
+    process.env.FRONTEND_URL,
+    /\.vercel\.app$/, // Allow all Vercel preview deployments
+    /\.netlify\.app$/ // Allow all Netlify deployments
+  ].filter(Boolean),
   credentials: true
 }));
 app.use(express.json());
