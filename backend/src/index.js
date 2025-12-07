@@ -40,6 +40,21 @@ app.get('/', (req, res) => {
   });
 });
 
+// API info endpoint
+app.get('/api', (req, res) => {
+  res.json({ 
+    success: true, 
+    message: 'Retail Sales Management System API',
+    version: '1.0.0',
+    endpoints: {
+      transactions: '/api/transactions',
+      filters: '/api/filters/options',
+      search: '/api/search',
+      health: '/health'
+    }
+  });
+});
+
 // Routes (ALL API ROUTES START WITH /api)
 app.use('/api', createSalesRoutes(salesService));
 
