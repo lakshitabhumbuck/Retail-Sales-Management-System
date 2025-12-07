@@ -5,11 +5,13 @@
 ## Tech Stack
 
 ### Backend
+- PostgreSQL
 - Node.js with Express.js
 - Pure JavaScript (ES Modules)
 - CORS enabled for frontend integration
 
 ### Frontend
+- HTML
 - React 18 with Vite
 - Axios for HTTP requests
 - CSS3 with responsive design
