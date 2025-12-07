@@ -28,7 +28,6 @@ Employed a **case-insensitive, full-text search** mechanism to enable users to q
 - **Interaction with Sorting & Pagination:** Search results are fully compatible with sorting and pagination workflows; selecting a new search term automatically updates the paginated dataset.
 - **UI Behavior:** Provides a clear search input field with a **dedicated "Clear Search" button** for resetting results without affecting active filters.
 
-
 **Key Code Example:**
 ```javascript
 export const performSearch = (data, searchTerm, searchFields) => {
@@ -40,6 +39,8 @@ export const performSearch = (data, searchTerm, searchFields) => {
     });
   });
 };
+
+
 
 ## Filter Implementation Summary
 
