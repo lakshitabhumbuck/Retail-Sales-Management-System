@@ -84,6 +84,7 @@ export const applyFilters = (data, filters = {}) => {
   // Additional filters (Gender, Category, Tags, Payment Method, Date Range) applied sequentially
   return filtered;
 };
+```
 
 ## Sorting Implementation Summary
 
@@ -145,7 +146,7 @@ export const applySorting = (data, sortBy = 'date', sortOrder = 'desc') => {
   return sorted;
 };
 
-
+```
 ## Pagination Implementation Summary
 
 **Approach:**  
@@ -188,7 +189,7 @@ export const paginate = (data, page = 1, pageSize = 10) => {
     }
   };
 };
-
+```
 
 ## Setup Instructions
 
