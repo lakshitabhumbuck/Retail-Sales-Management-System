@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Retail Sales Management System is a full-stack application designed to manage and analyze retail sales transactions with advanced search, filtering, sorting, and pagination capabilities. The system follows a clean, modular architecture with clear separation of concerns between frontend and backend.
+The Retail Sales Management System is a full-stack application designed to manage and analyze retail sales transactions with advanced search, filtering, sorting, and pagination capabilities. 
 
 ## Technology Stack
 
