@@ -5,27 +5,20 @@ import SalesService from './services/SalesService.js';
 import createSalesRoutes from './routes/salesRoutes.js';
 import sampleData from './models/sampleData.js';
 
-if (sampleData && Array.isArray(sampleData)) {
-  console.log(`Loaded sample data: ${sampleData.length} transactions`);
-} else {
-  console.error('sampleData is undefined or not an array!');
-}
-
-
 const app = express();
-const PORT = process.env.PORT || 10000; // Render default port
+const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: ['http://localhost:3000', 'http://192.168.1.2:3000', 'http://172.21.160.1:3000'],
+  credentials: true
+}));
 app.use(express.json());
 
 // Initialize service with sample data
 const salesService = new SalesService(sampleData);
 
-// Log loaded data length for debugging
-console.log(`Loaded sample data: ${sampleData.length} transactions`);
-
-// Routes
+// Routes (ALL API ROUTES START WITH /api)
 app.use('/api', createSalesRoutes(salesService));
 
 // Health check
@@ -41,17 +34,8 @@ app.use((req, res) => {
   });
 });
 
-// Error handler
-app.use((err, req, res, next) => {
-  console.error(err);
-  res.status(500).json({
-    success: false,
-    error: 'Internal server error'
-  });
-});
-
-// Start server on 0.0.0.0 for Render
-app.listen(PORT, '0.0.0.0', () => {
-  console.log(`🚀 Server is running on port ${PORT}`);
-  console.log(`📊 API available at http://localhost:${PORT}/api`);
+// Start server (Works locally + Render)
+app.listen(PORT, () => {
+  console.log(`🚀 Server running at http://localhost:${PORT}`);
+  console.log(`📊 Transactions API: http://localhost:${PORT}/api/transactions`);
 });

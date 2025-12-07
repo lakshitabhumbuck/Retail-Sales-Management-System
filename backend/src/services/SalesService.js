@@ -41,30 +41,25 @@ export class SalesService {
       };
     }
 
-    // Apply search
-    let result = performSearch(this.data, search, ['customerName', 'phoneNumber']);
+    // Apply search - returns { results, searchApplied, resultCount }
+    const searchResult = performSearch(this.data, search, ['customerName', 'phoneNumber']);
+    let workingData = searchResult.results;
 
-    // Apply filters
-    result = applyFilters(result, filters);
+    // Apply filters - returns { results, warnings, filterCount }
+    const filterResult = applyFilters(workingData, filters);
+    workingData = filterResult.results;
 
-    // Apply sorting
-    result = applySorting(result, sortBy, sortOrder);
+    // Apply sorting - returns { data, sortApplied }
+    const sortResult = applySorting(workingData, sortBy, sortOrder);
+    workingData = sortResult.data;
 
-    // Apply pagination
-    const paginatedResult = paginate(result, page, pageSize);
+    // Apply pagination - returns { data, pagination }
+    const paginatedResult = paginate(workingData, page, pageSize);
 
     return {
       success: true,
-      data: paginatedResult.items,
-      pagination: {
-        currentPage: page,
-        pageSize,
-        totalItems: result.length,
-        totalPages: Math.ceil(result.length / pageSize),
-        hasNextPage: page < Math.ceil(result.length / pageSize),
-        hasPreviousPage: page > 1,
-        itemsInCurrentPage: paginatedResult.items.length
-      }
+      data: paginatedResult.data,
+      pagination: paginatedResult.pagination
     };
   }
 
@@ -125,9 +120,13 @@ export class SalesService {
    * Search with pagination (simplified)
    */
   search(searchTerm, page = 1, pageSize = 10) {
-    const result = performSearch(this.data, searchTerm, ['customerName', 'phoneNumber']);
-    const paginatedResult = paginate(result, page, pageSize);
-    return { success: true, data: paginatedResult.items, total: result.length };
+    const searchResult = performSearch(this.data, searchTerm, ['customerName', 'phoneNumber']);
+    const paginatedResult = paginate(searchResult.results, page, pageSize);
+    return { 
+      success: true, 
+      data: paginatedResult.data, 
+      pagination: paginatedResult.pagination 
+    };
   }
 }
 
