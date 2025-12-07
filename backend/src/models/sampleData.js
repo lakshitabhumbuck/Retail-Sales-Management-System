@@ -1,5 +1,3 @@
-
-
 const sampleData = [
   {
     transactionId: "1234567",
