@@ -7,6 +7,7 @@ The Retail Sales Management System is a full-stack application designed to manag
 ## Technology Stack
 
 ### Backend
+- **Database**: PostgreSQL
 - **Runtime**: Node.js
 - **Framework**: Express.js (HTTP server)
 - **Language**: JavaScript (ES Modules)
@@ -26,19 +27,24 @@ The Retail Sales Management System is a full-stack application designed to manag
 ```
 backend/
 ├── src/
-│   ├── controllers/          # Request handlers
+│   ├── controllers/          
 │   │   └── SalesController.js
-│   ├── services/             # Business logic
+│   ├── services/             
 │   │   └── SalesService.js
-│   ├── routes/               # API route definitions
+│   ├── routes/               
 │   │   └── salesRoutes.js
-│   ├── models/               # Data models
-│   │   └── sampleData.js
-│   ├── utils/                # Utility functions
+│   ├── models/               
+│   │   ├── index.js           
+│   │   ├── transaction.js      # Transaction model
+│   │   ├── customer.js         # Customer model
+│   │   ├── product.js          # Product model
+│   │   ├── store.js            # Store model
+│   ├── utils/                
 │   │   └── dataProcessor.js
-│   └── index.js              # Server entry point
+│   └── index.js              
 ├── package.json
 └── README.md
+
 ```
 
 ### Layer Responsibilities
