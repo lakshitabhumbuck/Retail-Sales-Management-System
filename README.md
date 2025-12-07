@@ -4,17 +4,19 @@
 
 ## Tech Stack
 
+
 ### Backend
-- PostgreSQL
-- Node.js with Express.js
-- Pure JavaScript (ES Modules)
-- CORS enabled for frontend integration
+- **Database:** PostgreSQL  
+- **Server:** Node.js with Express.js  
+- **Language:** Pure JavaScript (ES Modules)  
+- **Features:** CORS enabled for frontend integration, RESTful API endpoints
 
 ### Frontend
-- HTML
-- React 18 with Vite
-- Axios for HTTP requests
-- CSS3 with responsive design
+- **Markup & Styling:** HTML5, CSS3 (responsive design)  
+- **Framework:** React 18 with Vite  
+- **HTTP Client:** Axios for API requests  
+- **Features:** Dynamic UI fetching data from backend API, responsive layout for desktop and mobile
+
 
 
 ## Search Implementation Summary
