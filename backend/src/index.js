@@ -10,13 +10,32 @@ const PORT = process.env.PORT || 5000;
 
 // Middleware
 app.use(cors({
-  origin: ['http://localhost:3000', 'http://192.168.1.2:3000', 'http://172.21.160.1:3000'],
+  origin: [
+    'http://localhost:3000', 
+    'http://192.168.1.2:3000', 
+    'http://172.21.160.1:3000',
+    process.env.FRONTEND_URL || 'https://retail-sales-management-system-a6xb.onrender.com'
+  ],
   credentials: true
 }));
 app.use(express.json());
 
 // Initialize service with sample data
 const salesService = new SalesService(sampleData);
+
+// Root endpoint
+app.get('/', (req, res) => {
+  res.json({ 
+    success: true, 
+    message: 'Retail Sales Management System API',
+    endpoints: {
+      health: '/health',
+      transactions: '/api/transactions',
+      filters: '/api/filters/options',
+      search: '/api/search'
+    }
+  });
+});
 
 // Routes (ALL API ROUTES START WITH /api)
 app.use('/api', createSalesRoutes(salesService));
