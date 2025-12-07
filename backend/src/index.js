@@ -5,6 +5,13 @@ import SalesService from './services/SalesService.js';
 import createSalesRoutes from './routes/salesRoutes.js';
 import sampleData from './models/sampleData.js';
 
+if (sampleData && Array.isArray(sampleData)) {
+  console.log(`Loaded sample data: ${sampleData.length} transactions`);
+} else {
+  console.error('sampleData is undefined or not an array!');
+}
+
+
 const app = express();
 const PORT = process.env.PORT || 10000; // Render default port
 
