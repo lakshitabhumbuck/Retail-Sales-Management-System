@@ -29,18 +29,6 @@ Employed a **case-insensitive, full-text search** mechanism to enable users to q
 - **UI Behavior:** Provides a clear search input field with a **dedicated "Clear Search" button** for resetting results without affecting active filters.
 
 
-**Key Code Example:**
-```javascript
-export const performSearch = (data, searchTerm, searchFields) => {
-  const lowerSearchTerm = searchTerm.toLowerCase();
-  return data.filter(record => {
-    return searchFields.some(field => {
-      const fieldValue = record[field];
-      return String(fieldValue).toLowerCase().includes(lowerSearchTerm);
-    });
-  });
-};
-
 ## Filter Implementation Summary
 
 **Approach:**  
