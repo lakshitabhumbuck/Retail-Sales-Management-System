@@ -1,6 +1,4 @@
-// Sample dataset - In production, this would come from a database
-// Format matches the requirements from the assignment
-// Extended dataset with 110 transactions (11 pages at 10 items per page)
+
 
 const sampleData = [
   {
